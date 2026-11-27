@@ -1,0 +1,16 @@
+# system.build — QNX 8.0 OS image for Raspberry Pi 5 (aarch64).
+# Build with: mkifs system.build system.ifs
+[image=0x800000]
+[virtual=aarch64le,elf] boot = {
+    startup-rpi4 -D 8250
+    PATH=/proc/boot procnto-smp-instr
+}
+[+script] .script = {
+    display_msg "Hello from QNX 8.0 on Raspberry Pi 5"
+    procmgr_symlink ../../proc/boot/libc.so.6 /usr/lib/ldqnx.so.2
+    reopen
+    hello &
+}
+[type=link] /usr/lib/ldqnx.so.2=/proc/boot/libc.so.6
+libc.so.6
+[uid=0 gid=0 perms=0755] /proc/boot/hello = hello

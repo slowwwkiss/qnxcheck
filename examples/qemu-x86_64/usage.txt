@@ -1,0 +1,2 @@
+hello — minimal QNX Neutrino message-passing server.
+Listens on the name "hello" and replies "hello from QNX" to any message.

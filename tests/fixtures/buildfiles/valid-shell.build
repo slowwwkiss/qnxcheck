@@ -1,0 +1,23 @@
+# A simple "ls", "ping", and shell. (QNX docs example, shell.bld)
+[virtual=armbe,srec] .bootstrap = {
+    startup-ixdp425
+    PATH=/proc/boot procnto -vv
+}
+[+script] .script = {
+    procmgr_symlink ../../proc/boot/libc.so.2 /usr/lib/ldqnx.so.2
+    devc-ser8250-ixp2400 -F -e -c14745600 -b115200 0xc8000000 ^2,15 &
+    reopen
+    display_msg Serial Driver Started
+}
+[type=link] /dev/console=/dev/ser1
+[type=link] /tmp=/dev/shmem
+libc.so
+[data=copy]
+devc-ser8250-ixp2400
+ksh
+ls
+cat
+data1
+ping
+ftp
+pidin

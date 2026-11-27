@@ -1,0 +1,13 @@
+[image=0x400000]
+[virtual=x86_64,multiboot] boot = {
+    startup-x86 -D 8250
+    PATH=/proc/boot procnto-smp-instr
+}
+[+script] .script = {
+    display_msg "Hello"
+    reopen
+    hello &
+}
+[type=link] /usr/lib/ldqnx.so.2=/proc/boot/libc.so.6
+libc.so.6
+[type=] /proc/boot/hello = hello

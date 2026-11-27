@@ -1,0 +1,7 @@
+# Broken "QNX" makefile: no common.mk, no TARGET_CPU, no USEFILE,
+# no INSTALLDIR, no warning flags.
+CC = gcc
+CFLAGS = -O2
+
+all:
+	$(CC) $(CFLAGS) -o hello hello.c

@@ -1,0 +1,7 @@
+# Good QNX recursive makefile.
+TARGET_CPU = x86_64
+USEFILE = $(PROJECT_ROOT)/usage.txt
+INSTALLDIR = usr/bin
+EXTRA_CCOPTS += -Wall -Wextra
+
+include $(QNX_TARGET)/usr/include/mk/common.mk

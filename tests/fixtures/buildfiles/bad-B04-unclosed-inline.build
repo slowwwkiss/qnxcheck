@@ -1,0 +1,3 @@
+[virtual=x86_64,multiboot] boot = {
+    startup-x86 -D 8250
+    PATH=/proc/boot procnto-smp-instr
